@@ -1,7 +1,6 @@
 ---
 layout: post
 title: 电脑笔记
-status: public
 ---
 ## Ubuntu 忘了密码
 https://askubuntu.com/questions/24006/how-do-i-reset-a-lost-administrative-password
