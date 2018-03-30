@@ -28,4 +28,5 @@ exclude:
 
 safe: true
 lsi: false
+mathjax: true
 
