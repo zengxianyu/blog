@@ -1,13 +1,24 @@
 ---
+category: 不知道
 layout: post
 title: 电脑笔记
 ---
+## python调用bing搜索图片
+先注册个microsoft azure，弄一个keys，然后[照抄这些](https://docs.microsoft.com/zh-cn/azure/cognitive-services/bing-image-search/quickstarts/python)
+
+[参数怎么填](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-images-api-v7-reference#query-parameters)
+
+也不知道要不要收钱，反正现在还没收我的
+
 ## Ubuntu 忘了密码
 https://askubuntu.com/questions/24006/how-do-i-reset-a-lost-administrative-password
 
 如果root密码也忘了
 
-https://www.howtogeek.com/howto/linux/reset-your-forgotten-ubuntu-password-in-2-minutes-or-less/
+https://www.howtogeek.com/howto/linux/reset-your-forgotten-ubuntu-password-in-2-minutes-or-less/日常备忘
+date: 2018-01-30
+status: public
+---
 ## ssh隧道
 用来访问校园网防火墙里的电脑、应该也可以观看大长城外的站点
 来自[I&ME的博客](http://arondight.me/2016/02/17/%E4%BD%BF%E7%94%A8SSH%E5%8F%8D%E5%90%91%E9%9A%A7%E9%81%93%E8%BF%9B%E8%A1%8C%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/)
