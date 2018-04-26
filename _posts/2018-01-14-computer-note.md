@@ -3,6 +3,11 @@ category: 不知道
 layout: post
 title: 电脑笔记
 ---
+## @
+装饰器。[这位的博客](http://www.wklken.me/posts/2013/07/19/python-translate-decorator.html)
+
+python3.5用@来表示矩阵相乘
+
 ## python调用bing搜索图片
 先注册个microsoft azure，弄一个keys，然后[照抄这些](https://docs.microsoft.com/zh-cn/azure/cognitive-services/bing-image-search/quickstarts/python)
 
@@ -41,6 +46,10 @@ avconv
 
 ## 终端走代理
 proxychains 这年头安装tensorflow都要用代理了
+
+这才过了没多久，安装pytorch也要用代理了
+
+下载proxychains之后，/etc里会有个proxychains.conf，把这个文件最后一行的sock4 127.0.0.1:xxxx 改成自己的代理的地址和端口
 
 ## 重装系统home不掉
 可能装系统的时候不格式化那个分区也可以但是没试过。这种不是好办法但是能用。假设原来home/zeng在sdb1上，新装的在sdb2上。
