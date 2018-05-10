@@ -8,7 +8,7 @@ ulimit -a 查看open files
 
 果然很小
 
-改成 ulimit -n 50000
+在ubuntu16上直接``` ulimit -n 50000```
 
 在ubuntu14上要这样：
 ```
