@@ -73,7 +73,7 @@ proxychains
 
 这年头安装tensorflow都要用代理了
 
-这才过了没多久，安装pytorch也要用代理了
+这才过了没多久，安装pytorch也要用代理了 遵纪守法的好孩子读个研究生没有代理简直寸步难行
 
 下载proxychains之后，/etc里会有个proxychains.conf，把这个文件最后一行的sock4 127.0.0.1:xxxx 改成自己的代理的地址和端口
 
