@@ -101,4 +101,4 @@ sudo blkid
 
 编辑/etc/fstab，添加自动挂sdb1到/home/zeng，如果sdb2还要用的话也加上sdb2
 
-这么做完了之后用户的家目录的所有者可能会变，导致无法登录。手动修改一下就行了。比如用ls -l /home/zeng，发现所有者不是zeng。改一下：```sudo chown -R zeng:zeng /home/zeng```
+这么做完了之后用户的家目录的所有者可能会变，导致无法登录（现象是在图形界面里切换用户，无法进入桌面，而是又回到了让你选择用户的地方）。手动修改一下家目录的所有者就行了。比如用ls -l /home/zeng，发现所有者不是zeng。改一下：```sudo chown -R zeng:zeng /home/zeng```
