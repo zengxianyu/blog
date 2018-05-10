@@ -3,6 +3,32 @@ category: 不知道
 layout: post
 title: 电脑笔记
 ---
+## Too many open files
+ulimit -a 查看open files
+
+果然很小
+
+改成 ulimit -n 50000
+
+在ubuntu14上要这样：
+```
+sudo sh -c "ulimit -n 500000 && exec su $LOGNAME"
+```
+
+## GPU内存没有释放
+今天用pytorch同时用两个gpu运行，用ctrl+c停止之后gpu内存没有释放。
+
+（来自[yjl9122的博客](https://blog.csdn.net/yjl9122/article/details/78920986)）
+使用PyTorch设置多线程（threads）进行数据读取（DataLoader），其实是假的多线程，他是开了N个子进程（PID都连着）进行模拟多线程工作，所以你的程序跑完或者中途kill掉主进程的话，子进程的GPU显存并不会被释放，需要手动一个一个kill才行，具体方法描述如下：
+
+1.先关闭ssh（或者shell）窗口，退出重新登录
+
+2.查看运行在gpu上的所有程序：
+
+fuser -v /dev/nvidia*
+
+3.kill掉所有（连号的）僵尸进程
+
 ## @
 装饰器。[这位的博客](http://www.wklken.me/posts/2013/07/19/python-translate-decorator.html)
 
@@ -52,14 +78,18 @@ proxychains 这年头安装tensorflow都要用代理了
 下载proxychains之后，/etc里会有个proxychains.conf，把这个文件最后一行的sock4 127.0.0.1:xxxx 改成自己的代理的地址和端口
 
 ## 重装系统home不掉
-可能装系统的时候不格式化那个分区也可以但是没试过。这种不是好办法但是能用。假设原来home/zeng在sdb1上，新装的在sdb2上。
+可能装系统的时候不格式化/home/所在的那个分区也可以但是没敢试过。这种不是好办法但是能用。
+
+查看有哪些磁盘```sudo lshw -C disk```
+
+假设原来home/zeng在sdb1上，新装的在sdb2上，新的/home/zeng里什么也没有，希望恢复成重装系统之前的样子。
 ```shell
-mkdir /mnt/tmp
-mount /dev/sdb1 /mnt/tmp
-rsync -avx /home/zeng /mnt/tmp
-rm -rf /home/zeng/*
-umount -l /home/zeng
-mount /dev/sdb1 /home/zeng
+sudo mkdir /mnt/tmp
+sudo mount /dev/sdb1 /mnt/tmp
+sudo rsync -avx /home/zeng /mnt/tmp
+sudo rm -rf /home/zeng/*
+sudo umount -l /home/zeng
+sudo mount /dev/sdb1 /home/zeng
 ```
 然后把新装的home挂到某个地方，或者干脆不要了
 
@@ -70,3 +100,5 @@ sudo blkid
 记住sdb1和sdb2的UUID和TYPE
 
 编辑/etc/fstab，添加自动挂sdb1到/home/zeng，如果sdb2还要用的话也加上sdb2
+
+这么做的话，用户的家目录的所有者会变，导致无法登录。手动修改一下就行了。比如用ls -l /home/zeng，发现所有者不是zeng。改一下：```sudo chown -R zeng:zeng /home/zeng```
