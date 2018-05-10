@@ -69,7 +69,9 @@ avconv
 <!--break-->
 
 ## 终端走代理
-proxychains 这年头安装tensorflow都要用代理了
+proxychains 
+
+这年头安装tensorflow都要用代理了
 
 这才过了没多久，安装pytorch也要用代理了
 
