@@ -1,9 +1,9 @@
 ###########
 # site.title, site.url, site.author.name
 
-title:   'XJBBB'
+title:   '呵呵'
 author:
-  name:  'xjbbb'
+  name:  'yu'
 
 ## note: 
 #  use site.path in your templates to make it work for both protocols e.g. http and https
