@@ -21,7 +21,7 @@ $$h(x) = sign(w^T x), x_0=1$$
 从所有可能的平面里选一个使得正确分类所有训练数据
 
 1. 从任意一个平面$w_0$开始
-2. 每次迭代t，找一个当前的平面$w_t$分类错误的$x_{n(t)}, y_{n(t)}$，即$y_{n(t)} \ne w_t^Tx_{n(t)}$
+2. 每次迭代t，找一个当前的平面$w_t$分类错误的$x_{n(t)}, y_{n(t)}$，即$y_{n(t)} \ne w_tx_{n(t)}$
 3. 修正$w_t$。$w_{t+1} \leftarrow w_t + y_{n(t)}x_{n(t)}$
 4. 直到所有点都正确分类了
 
@@ -29,10 +29,10 @@ $$h(x) = sign(w^T x), x_0=1$$
 
 收敛性证明：原理是求$w_T$的上界和下界，然后根据上界大于下界得出关于T的不等式
 
-设$w_0=0$，$w_f$是正确分类的平面，即$\forall n, y_{n} w_f^T x_{n}>0$。
+设$w_0=0$，$w_f$是正确分类的平面，即$\forall n, y_{n} w_fx_{n}>0$。
 
 1. 根据$w_{t+1} = w_t + y_{n(t)}x_{n(t)}$，得到$||w_{t+1}||^2\le||w_t||^2 + ||x_{n(t)}||^2$，所以$||w_T||^2\le TR^2$，其中$R=\max_n ||x_n||$
-2. $w_{t+1} = w_t + y_{n(t)}x_{n(t)}$等号两边同时左乘$w_f^T$得$w_f^Tw_{t+1}=w_f^Tw_t + y_{n(t)} w_f^Tx_{n(t)}$，所以$w_f^Tw_T > T\gamma$，其中$\gamma=\max_n y_n w_f^T x_n$。所以$||w_f||\cdot||w_T||\ge w_f^Tw_T>T\gamma$，即$||w_T||>\frac{T\gamma}{||w_f||}$。（从这里有个直观感受，随T增大，$w_T$和$w_f$的内积增大，说明平面和正确分类的平面越来越接近）
+2. $w_{t+1} = w_t + y_{n(t)}x_{n(t)}$等号两边同时左乘$w_f$得$w_fw_{t+1}=w_fw_t + y_{n(t)} w_fx_{n(t)}$，所以$w_fw_T > T\gamma$，其中$\gamma=\max_n y_n w_f x_n$。所以$||w_f||\cdot||w_T||\ge w_f^Tw_T>T\gamma$，即$||w_T||>\frac{T\gamma}{||w_f||}$。（从这里有个直观感受，随T增大，$w_T$和$w_f$的内积增大，说明平面和正确分类的平面越来越接近）
 3. 根据1和2，$\frac{T^2\gamma^2}{||w_f||^2}<TR^2$，即$T<\frac{R^2||w_f||^2}{\gamma^2}$
 
 ### Pocket
