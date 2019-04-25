@@ -14,7 +14,7 @@ author:
 ########
 # more settings
 
-markdown: kramdown
+markdown: Kramdown
 
 sass:
   sass_dir: css
